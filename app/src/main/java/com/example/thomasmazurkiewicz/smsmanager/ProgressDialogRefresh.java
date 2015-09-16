@@ -201,6 +201,9 @@ public class ProgressDialogRefresh extends AsyncTask<String, Integer, Boolean> {
         mBuilder.setProgress(0, 0, false);
         mNotifyManager.notify(0, mBuilder.build());
 
+        listProcess.getList().remove(iDdeleteItem);
+        listProcess.refresh();
+
         try {
             functionRefresh.invoke(context,null);
         } catch (IllegalAccessException e) {
